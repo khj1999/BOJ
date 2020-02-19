@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int arr1[1000000]; int arr2[1000000]; int solve[1000000];
+// 문제 진짜 난잡하게 풀었네 
+int main() {
+	int n, m;
+	scanf("%d %d", &n, &m);
+
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &arr1[i]);
+	}
+	for (int i = 0; i < m; i++) {
+		scanf("%d", &arr2[i]);
+	}
+	int j = 0;
+	for (; j < n; j++) {
+		solve[j] = arr1[j];
+	}
+	for (int i = 0; j < n + m; j++) {
+		solve[j] = arr2[i++];
+	}
+	sort(solve, solve + n + m);
+	for (int i = 0; i < n + m; i++) {
+		printf("%d ", solve[i]);
+	}
+	return 0;
+}
